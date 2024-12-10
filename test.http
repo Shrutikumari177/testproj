@@ -1,0 +1,7 @@
+POSt http://localhost:4004/odata/v4/voyage/VoyageType 
+Content-Type: application/json
+
+{
+    "VoyageCode":"Test",
+    "VoyageDescription":"TestVoyage"
+}

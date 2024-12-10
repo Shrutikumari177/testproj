@@ -1,0 +1,8 @@
+<mvc:View controllerName="masterdata.controller.VoyageDashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page2" title="{i18n>title}">
+        <GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Voyage Type" press="onPressVoyageType" />
+        <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Vessel Type" press="onPressVesselType" />
+    </Page>
+</mvc:View>

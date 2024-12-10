@@ -1,0 +1,171 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "masterdata",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.6",
+      "toolsId": "c7f35b19-d106-4789-9c66-18eb85a49468"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/voyage/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "masterdata-manage": {
+          "semanticObject": "masterdata",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        },
+        "Master-manage": {
+          "semanticObject": "Master",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        },
+        "master-manage": {
+          "semanticObject": "master",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.131.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "masterdata.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "masterdata.view"
+      },
+      "routes": [
+        {
+          "name": "RouteVoyageDashboard",
+          "pattern": ":?query:",
+          "target": [
+            "TargetVoyageDashboard"
+          ]
+        },
+        {
+          "name": "RouteVoyage",
+          "pattern": "Voyage",
+          "target": [
+            "TargetVoyage"
+          ]
+        },
+        {
+          "name": "RouteVessel",
+          "pattern": "Vessel",
+          "target": [
+            "TargetVessel"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetVoyageDashboard": {
+          "id": "VoyageDashboard",
+          "name": "VoyageDashboard"
+        },
+        "TargetVoyage": {
+          "id": "VoyageType",
+          "name": "VoyageType"
+        },
+        "TargetVessel": {
+          "id": "VesselType",
+          "name": "VesselType"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "masterdata.view.App",
+      "type": "XML",
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "demoSevice"
+  }
+}

@@ -1,0 +1,19 @@
+<mvc:View controllerName="masterdata.controller.VesselType"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+      xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="Vessel Type">
+    <Bar >
+    <contentRight>
+     <Button text="Save" press="onSave" type="Emphasized" />
+    </contentRight>
+    </Bar>
+    <f:SimpleForm id="voyageForm" layout="ResponsiveGridLayout" editable="true">
+                    <Label text="Vessel Type" />
+                    <Input value="{vesselTyp>/VesselCode}" width="30%" />
+                    <Label text="Voyage Type Desription" />
+                    <Input value="{vesselTyp>/VesselDescription}" width="30%"  />
+      </f:SimpleForm >             
+      
+    </Page>
+</mvc:View>

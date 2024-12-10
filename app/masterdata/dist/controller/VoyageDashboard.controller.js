@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],e=>{"use strict";return e.extend("masterdata.controller.VoyageDashboard",{onInit(){},onPressVoyageType:function(){const e=this.getOwnerComponent().getRouter();e.navTo("RouteVoyage")},onPressVesselType:function(){const e=this.getOwnerComponent().getRouter();e.navTo("RouteVessel")}})});
+//# sourceMappingURL=VoyageDashboard.controller.js.map
